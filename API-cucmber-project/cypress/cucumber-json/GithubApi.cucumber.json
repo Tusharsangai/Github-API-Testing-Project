@@ -1,0 +1,842 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Api Testing for GitHub As a Project",
+    "line": 1,
+    "id": "api-testing-for-github-as-a-project",
+    "tags": [],
+    "uri": "GithubApi.feature",
+    "elements": [
+      {
+        "id": "api-testing-for-github-as-a-project;create-a-repository-for-the-authenticated-user",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Create a repository for the authenticated user",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "Make a post request with the resource '/user/repos'",
+            "result": {
+              "status": "passed",
+              "duration": 2329000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 5,
+            "name": "Print the response in console",
+            "result": {
+              "status": "passed",
+              "duration": 18000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "Store Necessary data in the variable",
+            "result": {
+              "status": "passed",
+              "duration": 5000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "The response status code should be '201'",
+            "result": {
+              "status": "passed",
+              "duration": 12000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "Check Wether the RepoName is stored in variable 'Team-StarCathcers-GithubAPI'",
+            "result": {
+              "status": "passed",
+              "duration": 11000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "api-testing-for-github-as-a-project;update-a-repository",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "Update a Repository",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 11,
+            "name": "Make a patch request with resource '/repos/Tusharsangai/Team-StarCathcers-GithubAPI'",
+            "result": {
+              "status": "passed",
+              "duration": 793000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 12,
+            "name": "Print the response in console",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "Store Necessary data in the variable",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "The response status code should be '200'",
+            "result": {
+              "status": "passed",
+              "duration": 5000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "Check the Updated RepoName 'Team-Milkeyway'",
+            "result": {
+              "status": "passed",
+              "duration": 4000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "api-testing-for-github-as-a-project;get-a-repository",
+        "keyword": "Scenario",
+        "line": 17,
+        "name": "Get a Repository",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 18,
+            "name": "Make a GET request with resource '/repos/Tusharsangai/'",
+            "result": {
+              "status": "passed",
+              "duration": 511000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 19,
+            "name": "Print the response in console",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 20,
+            "name": "The response status code should be '200'",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "api-testing-for-github-as-a-project;create-file-contents",
+        "keyword": "Scenario",
+        "line": 22,
+        "name": "Create file contents",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 23,
+            "name": "Make a PUT request with the resource '/repos/Tusharsangai/Team-Milkeyway/contents/README.md'",
+            "result": {
+              "status": "passed",
+              "duration": 707000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 24,
+            "name": "Print the response in console",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 25,
+            "name": "Store Necessary data in the variable",
+            "result": {
+              "status": "passed",
+              "duration": 4000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 26,
+            "name": "The response status code should be '201'",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 27,
+            "name": "Check Wether the sha value is stored in variable",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "api-testing-for-github-as-a-project;create-a-fork",
+        "keyword": "Scenario",
+        "line": 29,
+        "name": "CREATE A FORK",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 30,
+            "name": "Make a POST request with the resource '/repos/Tusharsangai/Team-Milkeyway/forks'",
+            "result": {
+              "status": "passed",
+              "duration": 1490000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 31,
+            "name": "Print the response in console",
+            "result": {
+              "status": "passed",
+              "duration": 47000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 32,
+            "name": "The response status code should be '202'",
+            "result": {
+              "status": "passed",
+              "duration": 14000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "api-testing-for-github-as-a-project;list-forks",
+        "keyword": "Scenario",
+        "line": 35,
+        "name": "LIST FORKS",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 36,
+            "name": "Make a GET request For FORKS with the resource '/repos/Tusharsangai/Team-Milkeyway/forks'",
+            "result": {
+              "status": "passed",
+              "duration": 650000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 37,
+            "name": "Print the response in console",
+            "result": {
+              "status": "passed",
+              "duration": 5000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 38,
+            "name": "The response status code should be '200'",
+            "result": {
+              "status": "passed",
+              "duration": 5000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "api-testing-for-github-as-a-project;get-a-list-of-repository",
+        "keyword": "Scenario",
+        "line": 40,
+        "name": "GET A LIST Of REPOSITORY",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 41,
+            "name": "Make a GET request For LIST OF REPOSITORY with the resource '/users/Tusharsangai/repos'",
+            "result": {
+              "status": "passed",
+              "duration": 712000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 42,
+            "name": "Print the response in console",
+            "result": {
+              "status": "passed",
+              "duration": 5000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 43,
+            "name": "The response status code should be '200'",
+            "result": {
+              "status": "passed",
+              "duration": 5000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "api-testing-for-github-as-a-project;list-repository-languages",
+        "keyword": "Scenario",
+        "line": 45,
+        "name": "List repository languages",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 46,
+            "name": "Make a GET request for repositories languages with the resource '/repos/Tusharsangai/Team-Milkeyway/languages'",
+            "result": {
+              "status": "passed",
+              "duration": 473000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 47,
+            "name": "Print the response in console",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 48,
+            "name": "The response status code should be '200'",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "api-testing-for-github-as-a-project;list-public-repositories",
+        "keyword": "Scenario",
+        "line": 50,
+        "name": "List public repositories",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 51,
+            "name": "Make a GET request for public repositories with the resource '/repositories'",
+            "result": {
+              "status": "passed",
+              "duration": 721000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 52,
+            "name": "Print the response in console",
+            "result": {
+              "status": "passed",
+              "duration": 7000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 53,
+            "name": "The response status code should be '200'",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "api-testing-for-github-as-a-project;delete-a-fork",
+        "keyword": "Scenario",
+        "line": 55,
+        "name": "Delete a FORK",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 56,
+            "name": "Make a Delete request with the resource '/repos/Tushar-NewOrganization/New-Fork2'",
+            "result": {
+              "status": "passed",
+              "duration": 5703000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 57,
+            "name": "The response status code should be '204'",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "api-testing-for-github-as-a-project;delete-a-file",
+        "keyword": "Scenario",
+        "line": 59,
+        "name": "Delete a file",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 60,
+            "name": "Make a Delete file request with the resource '/repos/Tusharsangai/Team-Milkeyway/contents/README.md'",
+            "result": {
+              "status": "passed",
+              "duration": 607000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 61,
+            "name": "The response status code should be '200'",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "api-testing-for-github-as-a-project;create-a-release",
+        "keyword": "Scenario",
+        "line": 63,
+        "name": "Create a release",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 64,
+            "name": "Make a POST request to create a release with the resource '/repos/Tusharsangai/Team-Milkeyway/releases'",
+            "result": {
+              "status": "passed",
+              "duration": 924000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 65,
+            "name": "Print the response in console",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 66,
+            "name": "The response status code should be '201'",
+            "result": {
+              "status": "passed",
+              "duration": 4000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "api-testing-for-github-as-a-project;list-repository-tags",
+        "keyword": "Scenario",
+        "line": 68,
+        "name": "List repository tags",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 69,
+            "name": "Make a GET request for repositories tags with the resource '/repos/Tusharsangai/Team-Milkeyway/tags'",
+            "result": {
+              "status": "passed",
+              "duration": 461000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 70,
+            "name": "Print the response in console",
+            "result": {
+              "status": "passed",
+              "duration": 4000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 71,
+            "name": "The response status code should be '200'",
+            "result": {
+              "status": "passed",
+              "duration": 4000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "api-testing-for-github-as-a-project;create-an-autolink-reference-for-a-repository",
+        "keyword": "Scenario",
+        "line": 73,
+        "name": "Create an autolink reference for a repository",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 74,
+            "name": "Make a POST request For autolink with the resource '/repos/Tusharsangai/Team-Milkeyway/autolinks'",
+            "result": {
+              "status": "passed",
+              "duration": 448000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 75,
+            "name": "Print the response in console",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 76,
+            "name": "Store Necessary data in the variable",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 77,
+            "name": "The response status code should be '201'",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "api-testing-for-github-as-a-project;replace-all-repository-topics",
+        "keyword": "Scenario",
+        "line": 79,
+        "name": "Replace all repository topics",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 80,
+            "name": "Make a PUT request for repositories topics with the resource '/repos/Tusharsangai/Team-Milkeyway/topics'",
+            "result": {
+              "status": "passed",
+              "duration": 889000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 81,
+            "name": "Print the response in console",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 82,
+            "name": "The response status code should be '200'",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "api-testing-for-github-as-a-project;get-all-repository-topics",
+        "keyword": "Scenario",
+        "line": 84,
+        "name": "Get all repository topics",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 85,
+            "name": "Make a GET request for repositories topics with the resource '/repos/Tusharsangai/Team-Milkeyway/topics'",
+            "result": {
+              "status": "passed",
+              "duration": 768000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 86,
+            "name": "Print the response in console",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 87,
+            "name": "The response status code should be '200'",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "api-testing-for-github-as-a-project;get-an-autolink-reference-of-a-repository",
+        "keyword": "Scenario",
+        "line": 89,
+        "name": "Get an autolink reference of a repository",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 90,
+            "name": "Make a GET request for repositories autolink with the resource '/repos/Tusharsangai/Team-Milkeyway/autolinks/'",
+            "result": {
+              "status": "passed",
+              "duration": 463000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 91,
+            "name": "Print the response in console",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 92,
+            "name": "The response status code should be '200'",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "api-testing-for-github-as-a-project;delete-an-autolink-reference-from-a-repository",
+        "keyword": "Scenario",
+        "line": 94,
+        "name": "Delete an autolink reference from a repository",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 95,
+            "name": "Make a Delete request to delete autolink with the resource '/repos/Tusharsangai/Team-Milkeyway/autolinks/'",
+            "result": {
+              "status": "passed",
+              "duration": 447000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 96,
+            "name": "The Delete response status code should be '204'",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "api-testing-for-github-as-a-project;get-a-repository",
+        "keyword": "Scenario",
+        "line": 98,
+        "name": "Get a repository",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 99,
+            "name": "Make a GET request  with the resource '/repos/Tusharsangai/Team-Milkeyway'",
+            "result": {
+              "status": "passed",
+              "duration": 439000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 100,
+            "name": "Print the response in console",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 101,
+            "name": "The response status code should be '200'",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "api-testing-for-github-as-a-project;delete-a-repository",
+        "keyword": "Scenario",
+        "line": 103,
+        "name": "Delete a repository",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 104,
+            "name": "Make a Delete request with the resource '/repos/Tusharsangai/Team-StarCathcers-GithubAPI'",
+            "result": {
+              "status": "passed",
+              "duration": 6014000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 105,
+            "name": "The Delete response status code should be '204'",
+            "result": {
+              "status": "passed",
+              "duration": 7000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,791 @@
+{
+	"info": {
+		"_postman_id": "f45633af-065b-4984-a6e3-eee0f734027b",
+		"name": "Github Repo Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27092804",
+		"_collection_link": "https://solar-shadow-423544.postman.co/workspace/Tushar~3b921ec9-5cf7-4689-8b0b-2e571190bacb/collection/27092804-f45633af-065b-4984-a6e3-eee0f734027b?action=share&creator=27092804&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "1.Create a Repository for User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"checking of Post request of Github\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"const name = pm.response.json().name;\r",
+							"pm.environment.set(\"RepoName\", name);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"name\": \"{{RepositoryName}}\",\r\n  \"description\": \"This is your first repo!\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Baseurl}}/user/repos",
+					"host": [
+						"{{Baseurl}}"
+					],
+					"path": [
+						"user",
+						"repos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.Update Repository",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Checking Update Status of Repo\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const name = pm.response.json().name\r",
+							"pm.environment.set(\"RepoName\", name);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"name\":\"{{UpdatedRepositoryName}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Baseurl}}/repos/{{username}}/{{RepoName}}",
+					"host": [
+						"{{Baseurl}}"
+					],
+					"path": [
+						"repos",
+						"{{username}}",
+						"{{RepoName}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.GET a Repository",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"GET a Repo\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Baseurl}}/repos/{{username}}/{{RepoName}}",
+					"host": [
+						"{{Baseurl}}"
+					],
+					"path": [
+						"repos",
+						"{{username}}",
+						"{{RepoName}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10.Create A File Content",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"const shs = pm.response.json().content.sha;\r",
+							"pm.environment.set(\"shs\", shs)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"message\":\"File Successfully Created\",\r\n    \"content\":\"{{encoded}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Baseurl}}/repos/{{username}}/{{RepoName}}/contents/Tushar.txt",
+					"host": [
+						"{{Baseurl}}"
+					],
+					"path": [
+						"repos",
+						"{{username}}",
+						"{{RepoName}}",
+						"contents",
+						"Tushar.txt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.CREATE A FORK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(202);\r",
+							"});\r",
+							"\r",
+							"const fork = pm.response.json().name\r",
+							"pm.environment.set(\"fork-repo\", fork);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    // \"organization\":\"Tushar-NewOrganization\",\r\n    \"name\":\"fork-repo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Baseurl}}/repos/nishantkmr97/Masai_project1/forks",
+					"host": [
+						"{{Baseurl}}"
+					],
+					"path": [
+						"repos",
+						"nishantkmr97",
+						"Masai_project1",
+						"forks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.GET a List Of FORK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{Baseurl}}/repos/{{username}}/{{RepoName}}/forks",
+					"host": [
+						"{{Baseurl}}"
+					],
+					"path": [
+						"repos",
+						"{{username}}",
+						"{{RepoName}}",
+						"forks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.GET a List of Repository for User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Baseurl}}/users/{{username}}/repos",
+					"host": [
+						"{{Baseurl}}"
+					],
+					"path": [
+						"users",
+						"{{username}}",
+						"repos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8.GET a Repository langauage",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Baseurl}}/repos/{{username}}/{{RepoName}}/languages",
+					"host": [
+						"{{Baseurl}}"
+					],
+					"path": [
+						"repos",
+						"{{username}}",
+						"{{RepoName}}",
+						"languages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.GET a Public Repository",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.environment.set(\"encoded\", btoa(\"Updated Hello World\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Baseurl}}/repositories",
+					"host": [
+						"{{Baseurl}}"
+					],
+					"path": [
+						"repositories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "12.CREATE A List of Tags",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Baseurl}}/repos/{{username}}/{{RepoName}}/tags",
+					"host": [
+						"{{Baseurl}}"
+					],
+					"path": [
+						"repos",
+						"{{username}}",
+						"{{RepoName}}",
+						"tags"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "13.GET a AutoLink Reference for Repository",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"const ID=pm.response.json().id;\r",
+							"pm.environment.set(\"id\", ID)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key_prefix\": \"TICKET-API_testing\",\r\n  \"url_template\": \"https://example.com/TICKET?query=<num>\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Baseurl}}/repos/{{username}}/{{RepoName}}/autolinks",
+					"host": [
+						"{{Baseurl}}"
+					],
+					"path": [
+						"repos",
+						"{{username}}",
+						"{{RepoName}}",
+						"autolinks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "15.GET an Autolink Reference of Repository",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Baseurl}}/repos/{{username}}/{{RepoName}}/autolinks/{{id}}",
+					"host": [
+						"{{Baseurl}}"
+					],
+					"path": [
+						"repos",
+						"{{username}}",
+						"{{RepoName}}",
+						"autolinks",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "17.GET A Repo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Baseurl}}/repos/{{username}}/{{RepoName}}",
+					"host": [
+						"{{Baseurl}}"
+					],
+					"path": [
+						"repos",
+						"{{username}}",
+						"{{RepoName}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "18.Replace all Repository Topics",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"names\": [\r\n        \"react\",\r\n        \"java\",\r\n        \"python\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Baseurl}}/repos/{{username}}/{{RepoName}}/topics",
+					"host": [
+						"{{Baseurl}}"
+					],
+					"path": [
+						"repos",
+						"{{username}}",
+						"{{RepoName}}",
+						"topics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "14.GET All Repository Topics",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Baseurl}}/repos/{{username}}/{{RepoName}}/topics",
+					"host": [
+						"{{Baseurl}}"
+					],
+					"path": [
+						"repos",
+						"{{username}}",
+						"{{RepoName}}",
+						"topics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELET a Fork Repo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{Baseurl}}/repos/Tusharsangai/{{fork-repo}}",
+					"host": [
+						"{{Baseurl}}"
+					],
+					"path": [
+						"repos",
+						"Tusharsangai",
+						"{{fork-repo}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "16.DELETE an Autolink Reference of Repository",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{Baseurl}}/repos/{{username}}/{{RepoName}}/autolinks/{{id}}",
+					"host": [
+						"{{Baseurl}}"
+					],
+					"path": [
+						"repos",
+						"{{username}}",
+						"{{RepoName}}",
+						"autolinks",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "11.DELETE the File Content",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"message\":\"Deleted\",\r\n    \"sha\":\"{{shs}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Baseurl}}/repos/{{username}}/{{RepoName}}/contents/Tushar.txt",
+					"host": [
+						"{{Baseurl}}"
+					],
+					"path": [
+						"repos",
+						"{{username}}",
+						"{{RepoName}}",
+						"contents",
+						"Tushar.txt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.DELETE a Repository",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{Baseurl}}/repos/{{username}}/{{RepoName}}",
+					"host": [
+						"{{Baseurl}}"
+					],
+					"path": [
+						"repos",
+						"{{username}}",
+						"{{RepoName}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
