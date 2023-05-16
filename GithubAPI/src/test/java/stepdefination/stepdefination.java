@@ -19,7 +19,7 @@ import utility.playloadconverting;
 import java.util.HashMap;
 public class stepdefination {
 	public static String baseURL="https://api.github.com";
-	public static String bearer_Token="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";
+	public static String bearer_Token="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";
 	RequestSpecification requestspecification;
 	Response response;
 	JsonPath jsonpath;
